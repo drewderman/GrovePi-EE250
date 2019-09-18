@@ -64,7 +64,7 @@ while True:
         # Calculate rotation in degrees (0 to 300)
         degrees = round((voltage * full_angle) / grove_vcc, 2)
 
-    	grovepi.ledBar_init(ledbar, 0)
+        grovepi.ledBar_init(ledbar, 0)
 
     	# clear screen
     	textCommand(0x01)
@@ -73,7 +73,7 @@ while True:
     	time.sleep(.05)
 
     	setText("test")
-    	
+
 	except IOError:
         print ("Error")
 
