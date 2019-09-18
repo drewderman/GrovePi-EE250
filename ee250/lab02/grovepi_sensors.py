@@ -66,15 +66,15 @@ while True:
 
         grovepi.ledBar_init(ledbar, 0)
 
-    	# clear screen
-		textCommand(0x01)
+        # clear screen
+        textCommand(0x01)
 
-    	# sleep .05
-		time.sleep(.05)
+        # sleep .05
+        time.sleep(.05)
 
-		setText("test")
+        setText("test")
 
-	except IOError:
+    except IOError:
         print ("Error")
 
 # sets text via setText("sampletext")
