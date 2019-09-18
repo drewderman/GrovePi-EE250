@@ -2,7 +2,7 @@
 
 Name: Drew Ruderman
 
-Repository: git@github.com:usc-ee250-fall2019/GrovePi-EE250.git
+Repository: git@github.com:drewderman/GrovePi-EE250.git
 
 """
 
