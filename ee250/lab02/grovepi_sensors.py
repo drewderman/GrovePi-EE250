@@ -42,7 +42,7 @@ if __name__ == '__main__':
         time.sleep(0.2)
         
         threshold = grovepi.analogRead(potentiometer_port) # read the potentiometer's value and set it to threshold
-        distance = grovepi.analogRead(rangefinder_port) # read the rangefinder's value and set it to distance
+        distance = grovepi.digitalRead(rangefinder_port) # read the rangefinder's value and set it to distance
 
         if (distance < threshold): # only display error if rangefinder is less than the threshold
             obj_error = "OBJ PRES" # output error that object is in the way
