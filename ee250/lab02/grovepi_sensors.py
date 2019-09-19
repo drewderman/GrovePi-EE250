@@ -41,14 +41,14 @@ if __name__ == '__main__':
         #sleep for a reasonable time of 200ms between each iteration.
         time.sleep(0.2)
         
-        threshold = grovepi.analogRead(potentiometer_port) # read the potentiometer's value and set it to threshold
-        distance = grovepi.digitalRead(rangefinder_port) # read the rangefinder's value and set it to distance
+        threshold = grovepi.analogRead(potentiometer_port) # read the potentiometer's analog value and set it to threshold
+        distance = grovepi.digitalRead(rangefinder_port) # read the rangefinder's digital value and set it to distance
 
         if (distance < threshold): # only display error if rangefinder is less than the threshold
             obj_error = "OBJ PRES" # output error that object is in the way
-            set RBG(255, 0, 0) # set LCD to red to say there is an error
+            setRBG(255, 0, 0) # set LCD to red to say there is an error
         else:
             obj_error = "        " # clear obj pres if no object in the way
-            set RBG(0, 0, 255) # set LCD to green for a good reading
+            setRBG(0, 0, 255) # set LCD to green for a good reading
 
         setText_norefresh(str(threshold) + "cm " + obj_error + "\n" + str(distance) + "cm") # output threshold and error message (if needed) on first line and distance on second line
