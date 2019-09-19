@@ -34,7 +34,7 @@ if __name__ == '__main__':
     rangefinder_port = 4    # D4 - Rangefinder in digital port
     potentiometer_port = 0   # A0 - Potentiometer in analog port
     # LCD connected to I2C, no need to set this
-    lcd.setRBG(0, 255, 0) # set LCD to blue initially
+    setRBG(0, 255, 0) # set LCD to blue initially
 
     while True:
         #So we do not poll the sensors too quickly which may introduce noise,
@@ -46,9 +46,9 @@ if __name__ == '__main__':
 
         if (distance < threshold): # only display error if rangefinder is less than the threshold
             obj_error = "OBJ PRES" # output error that object is in the way
-            lcd.setRBG(255, 0, 0) # set LCD to red to say there is an error
+            setRBG(255, 0, 0) # set LCD to red to say there is an error
         else:
             obj_error = "        " # clear obj pres if no object in the way
-            lcd.setRBG(0, 0, 255) # set LCD to green for a good reading
+            setRBG(0, 0, 255) # set LCD to green for a good reading
 
-        lcd.setText_norefresh(str(threshold) + "cm " + obj_error + "\n" + str(distance) + "cm") # output threshold and error message (if needed) on first line and distance on second line
+        setText_norefresh(str(threshold) + "cm " + obj_error + "\n" + str(distance) + "cm") # output threshold and error message (if needed) on first line and distance on second line
