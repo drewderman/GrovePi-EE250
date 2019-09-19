@@ -31,24 +31,23 @@ is, if you run `python3 grovepi_sensors.py` in terminal, this if-statement will
 be true"""
 if __name__ == '__main__':
 
-    rangefinder_port = 4    # D4 - Rangefinder in digital port
-    potentiometer_port = 0   # A0 - Potentiometer in analog port
     # LCD connected to I2C, no need to set this
-    # setRBG(0, 255, 0) # set LCD to blue initially
+    
+    setRGB(0, 0, 255) # set LCD to blue initially
 
     while True:
         #So we do not poll the sensors too quickly which may introduce noise,
         #sleep for a reasonable time of 200ms between each iteration.
         time.sleep(0.2)
         
-        threshold = grovepi.analogRead(potentiometer_port) # read the potentiometer's analog value and set it to threshold
-        distance = grovepi.digitalRead(rangefinder_port) # read the rangefinder's digital value and set it to distance
+        threshold = grovepi.analogRead(0) # read the potentiometer's analog value from port A0 and set it to threshold
+        distance = grovepi.digitalRead(4) # read the rangefinder's digital value from port D4 and set it to distance
 
         if (distance < threshold): # only display error if rangefinder is less than the threshold
             obj_error = "OBJ PRES" # output error that object is in the way
-            setRBG(255, 0, 0) # set LCD to red to say there is an error
+            setRGB(255, 0, 0) # set LCD to red to say there is an error
         else:
             obj_error = "        " # clear obj pres if no object in the way
-            setRBG(0, 0, 255) # set LCD to green for a good reading
+            setRGB(0, 255, 0) # set LCD to green for a good reading
 
         setText_norefresh(str(threshold) + "cm " + obj_error + "\n" + str(distance) + "cm") # output threshold and error message (if needed) on first line and distance on second line
