@@ -47,7 +47,7 @@ if __name__ == '__main__':
             obj_error = "OBJ PRES" # output error that object is in the way
             setRGB(255, 0, 0) # set LCD to red to say there is an error
         else:
-            obj_error = "            " # clear obj pres if no object in the way
+            obj_error = "          " # clear obj pres if no object in the way
             setRGB(0, 255, 0) # set LCD to green for a good reading
 
         setText_norefresh(str(threshold) + "cm " + obj_error + "\n" + str(distance) + "cm") # output threshold and error message (if needed) on first line and distance on second line
