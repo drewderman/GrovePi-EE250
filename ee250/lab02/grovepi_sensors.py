@@ -34,7 +34,7 @@ if __name__ == '__main__':
     rangefinder_port = 4    # D4 - Rangefinder in digital port
     potentiometer_port = 0   # A0 - Potentiometer in analog port
     # LCD connected to I2C, no need to set this
-    setRBG(0, 255, 0) # set LCD to blue initially
+    # setRBG(0, 255, 0) # set LCD to blue initially
 
     while True:
         #So we do not poll the sensors too quickly which may introduce noise,
