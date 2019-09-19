@@ -44,10 +44,10 @@ if __name__ == '__main__':
         distance = grovepi.ultrasonicRead(4) # read the rangefinder's digital value from port D4 and set it to distance
 
         if (distance < threshold): # only display error if rangefinder is less than the threshold
-            obj_error = "OBJ PRES    " # output error that object is in the way
+            obj_error = "OBJ PRES" # output error that object is in the way
             setRGB(255, 0, 0) # set LCD to red to say there is an error
         else:
-            obj_error = "           " # clear obj pres if no object in the way
+            obj_error = "        " # clear obj pres if no object in the way
             setRGB(0, 255, 0) # set LCD to green for a good reading
 
-        setText_norefresh(str(threshold) + "cm " + obj_error + "\n" + str(distance) + "cm") # output threshold and error message (if needed) on first line and distance on second line
+        setText_norefresh(str(threshold).zfill(4) + "cm " + obj_error + "\n" + str(distance).zfill(4) + "cm") # output threshold and error message (if needed) on first line and distance on second line
